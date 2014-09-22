@@ -2,26 +2,25 @@ package com.jayway.lab.gradle_lab;
 
 import java.util.Random;
 
-import com.jayway.labs.gradle.supermath.Adder;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
+import com.jayway.lab.gradle_lab.lib.LibActivity;
+import com.jayway.labs.gradle.supermath.Adder;
 
 public class MainActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        showAddition();
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		showAddition();
+	}
 
-
-    private void showAddition() {
+	private void showAddition() {
 		Adder adder = new Adder();
 		Random random = new Random();
 		int i1 = random.nextInt(100);
@@ -32,18 +31,7 @@ public class MainActivity extends Activity {
 		textView.setText(i1 + " + " + i2 + " + " + i3 + " = " + sum);
 	}
 
-	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+	public void onStartLibActivity(View view) {
+		startActivity(new Intent(this, LibActivity.class));
+	}
 }

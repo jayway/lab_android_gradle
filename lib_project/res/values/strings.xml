@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LibSample</string>
+    <string name="lib_intro">Hey there! I\'m from a lib.</string>
+    
+</resources>
